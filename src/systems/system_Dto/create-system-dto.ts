@@ -19,8 +19,6 @@ export class ClauseDto{
     @IsNotEmpty()
     CLAUSE_DESCRIPTION:string;
     @IsNotEmpty()
-    SYSTEMID:number;
-    @IsNotEmpty()
     STATUS:number;
     @IsNotEmpty()
     CREATE_USER:string;
@@ -28,6 +26,8 @@ export class ClauseDto{
     UPDATE_USER:string;
     @IsNotEmpty()
     CLAUSE_TITLE:string;
+    // @IsNotEmpty()
+    // CSYSTEMID:string;
     // @IsNotEmpty()
     // CLAUSE_SYSTEMID:number;
 }

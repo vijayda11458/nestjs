@@ -1,7 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn,CreateDateColumn,UpdateDateColumn,OneToOne,JoinColumn,ManyToOne,OneToMany, TableForeignKey} from "typeorm";
-import { Clause } from "./clauses.entity";
+import { Column, Entity, PrimaryGeneratedColumn,CreateDateColumn,UpdateDateColumn,OneToOne,JoinColumn,ManyToOne,OneToMany, TableForeignKey, BaseEntity} from "typeorm";
+import { Clause1 } from "./clauses.entity";
 @Entity()
-export class System{
+export class System1 extends BaseEntity{
     @PrimaryGeneratedColumn('increment')
     SYSTEMID:number;
     @Column()
@@ -19,10 +19,8 @@ export class System{
     @Column()
     UPDATE_USER:string;
 
-    @OneToMany(type=>Clause,clause=>clause.sytem,{
-        cascade:true
-    })
-    clause:Clause[];
+    @OneToMany(()=>Clause1,(clause:Clause1)=>clause.system)
+    clauses:Promise<Clause1[]>;
    
 }
 

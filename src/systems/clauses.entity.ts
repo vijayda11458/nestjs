@@ -1,10 +1,11 @@
 import { type } from "os";
-import { Column, Entity, PrimaryGeneratedColumn,CreateDateColumn,UpdateDateColumn,OneToOne,JoinColumn,ManyToOne,OneToMany, TableForeignKey, Relation} from "typeorm";
-import { System } from "./system.entity";
+import { Column, Entity, PrimaryGeneratedColumn,CreateDateColumn,UpdateDateColumn,OneToOne,JoinColumn,ManyToOne,OneToMany, TableForeignKey, Relation, BaseEntity} from "typeorm";
+import { System1 } from "./system.entity";
+import { TasksModule } from "./system.module";
 
 
 @Entity()
-export class Clause{
+export class Clause1 extends BaseEntity{
     @PrimaryGeneratedColumn('increment')
     CLAUSE_ID:number;
     @Column()
@@ -24,10 +25,10 @@ export class Clause{
     @Column()
     CLAUSE_TITLE:string;
     @Column({type:'int',nullable: true})
-    SYSTEMID:number;
-    @ManyToOne(type=>System,system =>system.SYSTEMID)
-    @JoinColumn({ name: "CSYSTEMID", referencedColumnName: 'SYSTEMID'})
-    sytem:System;
+    CSYSTEMID:number;
+    @ManyToOne(()=>System1,(system:System1 )=>system.clauses)
+    @JoinColumn({name:"CSYSTEMID"})
+        system:Promise<Clause1>;
     
   
 }
