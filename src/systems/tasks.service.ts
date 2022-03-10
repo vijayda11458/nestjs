@@ -47,7 +47,7 @@ return(this.tasksRepository.createQueryBuilder('system')
        'clause.UPDATE_USER',
        'clause.CLAUSE_TITLE'
     ])
-    // .where("system.SYSTEMID=:id",{id})
+    .where("system.SYSTEMID=:id",{id})
     // .andWhere("clause.CSYSTEMID=:id,{id:id}")
     .getMany()
     )
